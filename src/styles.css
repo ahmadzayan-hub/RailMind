@@ -110,3 +110,34 @@ button.action:focus-visible { outline: 3px solid var(--focus); outline-offset: 2
 .blocked { border: 1px solid var(--critical); border-radius: 10px; padding: 10px 14px; margin-top: 10px; color: #f4c9c5; font-size: 13px; background: rgba(226, 104, 95, .08); }
 .foot { margin-top: 34px; border-top: 1px solid var(--line); padding-top: 14px; color: var(--ink-dim); font-size: 12px; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* Priority list: filter chips and the ordered work table */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.chip { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 5px 12px; font: inherit; font-size: 13px; cursor: pointer; }
+.chip .count { color: var(--ink-dim); font-variant-numeric: tabular-nums; margin-inline-start: 4px; }
+.chip[aria-pressed="true"] { border-color: var(--rail); background: rgba(63, 169, 106, .14); }
+.chip:focus-visible, .row-link:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+table.priority { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.priority th { text-align: start; font-weight: 600; color: var(--ink-dim); font-size: 12px; padding: 10px 12px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+table.priority td { padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.priority tr:last-child td { border-bottom: 0; }
+table.priority tr[aria-current="true"] td { background: var(--surface-2); }
+table.priority td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+table.priority .meta { color: var(--ink-dim); font-size: 12px; }
+.row-link { background: none; border: 0; padding: 0; color: var(--rail-bright); font: inherit; font-weight: 600; cursor: pointer; text-align: start; text-decoration: underline; text-underline-offset: 3px; }
+.band { font-size: 11px; margin-inline-start: 6px; color: var(--ink-dim); }
+.band.watch { color: var(--watch); }
+.band.critical { color: var(--critical); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (max-width: 640px) {
+  table.priority thead { display: none; }
+  table.priority tr { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 12px; border-bottom: 1px solid var(--line); }
+  table.priority tr:last-child { border-bottom: 0; }
+  table.priority td { padding: 0; border: 0; }
+  table.priority td:nth-child(1) { display: none; }
+  table.priority td:nth-child(5) { grid-column: 1 / -1; }
+  table.priority tr[aria-current="true"] { background: var(--surface-2); }
+  table.priority tr[aria-current="true"] td { background: none; }
+}
+section.block[tabindex="-1"]:focus { outline: none; }

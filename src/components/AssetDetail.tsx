@@ -3,20 +3,10 @@ import { useEffect, useState } from 'react';
 import { proposeWorkOrder, type WorkOrderProposal } from '@/domain/maximo';
 import type { Assessment } from '@/domain/types';
 
+import { ACTION_LABEL, hoursLabel } from './labels';
+
 interface Props {
   assessment: Assessment;
-}
-
-const ACTION_LABEL: Record<Assessment['recommendation']['action'], string> = {
-  inspect: 'Inspect',
-  schedule_pm: 'Schedule preventive maintenance',
-  replace_component: 'Replace component',
-  monitor: 'Monitor',
-};
-
-function hoursLabel(hours: number): string {
-  if (hours < 48) return `${hours} hours`;
-  return `${Math.round(hours / 24)} days`;
 }
 
 export function AssetDetail({ assessment }: Props) {

@@ -82,4 +82,24 @@ describe('RailMind journey', () => {
     expect(screen.getByText(/Sample network/i)).toBeInTheDocument();
     expect(screen.getByText(/no safety-critical rail control action/i)).toBeInTheDocument();
   });
+
+  it('lists assets worst first and filters without re-scoring', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+    const table = screen.getByRole('table');
+    const rows = within(table).getAllByRole('row').slice(1);
+    expect(within(rows[0] as HTMLElement).getByRole('button', { name: /EMU set R24-017/ })).toBeInTheDocument();
+    const all = rows.length;
+    await user.click(screen.getByRole('button', { name: /^Healthy \d+/ }));
+    const healthy = within(screen.getByRole('table')).getAllByRole('row').slice(1);
+    expect(healthy.length).toBeLessThan(all);
+    expect(within(screen.getByRole('table')).queryByRole('button', { name: /EMU set R24-017/ })).not.toBeInTheDocument();
+  });
+
+  it('opens an asset from the priority list', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+    await user.click(within(screen.getByRole('table')).getByRole('button', { name: /Track section A12/ }));
+    expect(screen.getByRole('heading', { name: /Track section A12/ })).toBeInTheDocument();
+  });
 });
