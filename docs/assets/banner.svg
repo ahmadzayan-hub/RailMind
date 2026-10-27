@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="400" viewBox="0 0 1280 400" role="img" aria-labelledby="t d">
+  <title id="t">RailMind (legacy prototype)</title>
+  <desc id="d">Rail maintenance decision intelligence: which assets will hurt us next, why, and what to do this week.</desc>
+  <rect width="1280" height="400" fill="#08211f"/>
+  <g stroke="#1c4a48" stroke-width="1">
+    <path d="M0 100H1280M0 200H1280M0 300H1280" stroke-opacity="0.5"/>
+  </g>
+  <g transform="translate(760 0)">
+    <rect x="0" y="84" width="460" height="54" rx="10" fill="#0d2b2b" stroke="#1c4a48"/>
+    <path d="M14 111H446" stroke="#1c4a48" stroke-width="2"/>
+    <circle cx="80" cy="111" r="13" fill="#113635" stroke="#3fa96a" stroke-width="3"/>
+    <rect x="186" y="98" width="26" height="26" rx="5" fill="#113635" stroke="#d8a63c" stroke-width="3"/>
+    <rect x="300" y="98" width="26" height="26" rx="3" fill="#113635" stroke="#e2685f" stroke-width="3" transform="rotate(45 313 111)"/>
+    <rect x="0" y="174" width="460" height="54" rx="10" fill="#0d2b2b" stroke="#1c4a48"/>
+    <path d="M14 201H446" stroke="#1c4a48" stroke-width="2"/>
+    <circle cx="140" cy="201" r="13" fill="#113635" stroke="#3fa96a" stroke-width="3"/>
+    <circle cx="260" cy="201" r="13" fill="#113635" stroke="#3fa96a" stroke-width="3"/>
+    <rect x="367" y="188" width="26" height="26" rx="5" fill="#113635" stroke="#d8a63c" stroke-width="3"/>
+    <rect x="0" y="264" width="460" height="64" rx="10" fill="#0d2b2b" stroke="#d8a63c" stroke-opacity="0.7"/>
+    <text x="20" y="290" fill="#d8a63c" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700">Engineer review required</text>
+    <text x="20" y="312" fill="#8fb3ae" font-family="Arial, Helvetica, sans-serif" font-size="13">RailMind recommends; an engineer decides.</text>
+  </g>
+  <text x="80" y="132" fill="#57c98a" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="3">LEGACY PROTOTYPE</text>
+  <text x="80" y="210" fill="#e6f2ef" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800">RailMind</text>
+  <text x="80" y="258" fill="#8fb3ae" font-family="Arial, Helvetica, sans-serif" font-size="24">Which assets will hurt us next, why,</text>
+  <text x="80" y="290" fill="#8fb3ae" font-family="Arial, Helvetica, sans-serif" font-size="24">and what to do this week.</text>
+  <text x="80" y="342" fill="#7fd4ff" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="1">CANONICAL PLATFORM: RAILMIND-AGENT-OS</text>
+</svg>

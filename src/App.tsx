@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 
 import { AssetDetail } from '@/components/AssetDetail';
 import { NetworkMap } from '@/components/NetworkMap';
+import { PriorityList } from '@/components/PriorityList';
 import { SAMPLE_NETWORK } from '@/data/sample-network';
 import { assessAll, summarise } from '@/domain/risk';
 
@@ -13,6 +14,14 @@ export function App() {
     assessments[0]?.asset.id ?? null,
   );
   const selected = assessments.find((a) => a.asset.id === selectedId) ?? null;
+
+  // Choosing from the list moves the reader to the assessment it opens.
+  const selectFromList = (assetId: string) => {
+    setSelectedId(assetId);
+    const detail = document.getElementById('asset-detail');
+    detail?.focus({ preventScroll: true });
+    detail?.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <div className="shell">
@@ -62,7 +71,13 @@ export function App() {
         onSelect={setSelectedId}
       />
 
-      <section className="block" aria-labelledby="asset-heading">
+      <PriorityList
+        assessments={assessments}
+        selectedId={selectedId}
+        onSelect={selectFromList}
+      />
+
+      <section className="block" aria-labelledby="asset-heading" id="asset-detail" tabIndex={-1}>
         <h2 id="asset-heading">Asset</h2>
         {selected ? (
           <AssetDetail assessment={selected} />
